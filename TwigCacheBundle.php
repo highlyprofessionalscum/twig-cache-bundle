@@ -1,5 +1,5 @@
 <?php
-namespace App\highlyprofessionalscum\TwigCacheBundle;
+namespace highlyprofessionalscum\TwigCacheBundle;
 
 
 

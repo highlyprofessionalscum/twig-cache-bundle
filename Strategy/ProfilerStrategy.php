@@ -1,6 +1,6 @@
 <?php
 
-namespace App\highlyprofessionalscum\TwigCacheBundle\Strategy;
+namespace highlyprofessionalscum\TwigCacheBundle\Strategy;
 
 use App\highlyprofessionalscum\TwigCacheBundle\DataCollector\TwigCacheCollector;
 use Asm89\Twig\CacheExtension\CacheStrategyInterface;

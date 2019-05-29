@@ -1,6 +1,6 @@
 <?php
 
-namespace App\highlyprofessionalscum\TwigCacheBundle\DependencyInjection;
+namespace highlyprofessionalscum\TwigCacheBundle\DependencyInjection;
 
 use App\highlyprofessionalscum\TwigCacheBundle\DataCollector\TwigCacheCollector;
 use App\highlyprofessionalscum\TwigCacheBundle\Strategy\ProfilerStrategy;
