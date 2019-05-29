@@ -4,7 +4,7 @@ parameters:
   twig_cache.strategy.class: Asm89\Twig\CacheExtension\CacheStrategy\IndexedChainingCacheStrategy
   twig_cache.strategy.generational.class: Asm89\Twig\CacheExtension\CacheStrategy\GenerationalCacheStrategy
   twig_cache.strategy.lifetime.class: Asm89\Twig\CacheExtension\CacheStrategy\LifetimeCacheStrategy
-  twig_cache.strategy.spl_object_hash_key_generator.class: App\KeyGenerator\SplObjectHashKeyGenerator
+  twig_cache.strategy.spl_object_hash_key_generator.class: highlyprofessionalscum\TwigCacheBundle\KeyGenerator\SplObjectHashKeyGenerator
 
 services:
   twig_cache.strategy:

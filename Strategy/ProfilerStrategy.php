@@ -2,7 +2,7 @@
 
 namespace highlyprofessionalscum\TwigCacheBundle\Strategy;
 
-use App\highlyprofessionalscum\TwigCacheBundle\DataCollector\TwigCacheCollector;
+use highlyprofessionalscum\TwigCacheBundle\DataCollector\TwigCacheCollector;
 use Asm89\Twig\CacheExtension\CacheStrategyInterface;
 
 /**

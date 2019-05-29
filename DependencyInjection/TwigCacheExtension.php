@@ -2,8 +2,8 @@
 
 namespace highlyprofessionalscum\TwigCacheBundle\DependencyInjection;
 
-use App\highlyprofessionalscum\TwigCacheBundle\DataCollector\TwigCacheCollector;
-use App\highlyprofessionalscum\TwigCacheBundle\Strategy\ProfilerStrategy;
+use highlyprofessionalscum\TwigCacheBundle\DataCollector\TwigCacheCollector;
+use highlyprofessionalscum\TwigCacheBundle\Strategy\ProfilerStrategy;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
