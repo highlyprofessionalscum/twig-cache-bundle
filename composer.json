@@ -1,7 +1,7 @@
 {
   "name": "highlyprofessionalscum/twig-cache-bundle",
   "type": "symfony-bundle",
-  "description": "Symfony FOSUserBundle",
+  "description": "Symfony twig cache bundle",
   "keywords": [
     "bundle",
     "cache",
