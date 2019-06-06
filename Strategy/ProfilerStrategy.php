@@ -3,7 +3,7 @@
 namespace highlyprofessionalscum\TwigCacheBundle\Strategy;
 
 use highlyprofessionalscum\TwigCacheBundle\DataCollector\TwigCacheCollector;
-use Asm89\Twig\CacheExtension\CacheStrategyInterface;
+use highlyprofessionalscum\Twig\CacheExtension\CacheStrategyInterface;
 
 /**
  * Wrapper used to profile cache usage.

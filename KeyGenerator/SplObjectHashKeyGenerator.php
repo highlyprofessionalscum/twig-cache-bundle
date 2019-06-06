@@ -1,7 +1,7 @@
 <?php
 namespace  highlyprofessionalscum\TwigCacheBundle\KeyGenerator;
 
-use Asm89\Twig\CacheExtension\CacheStrategy\KeyGeneratorInterface;
+use highlyprofessionalscum\Twig\CacheExtension\KeyGeneratorInterface;
 /**
  * Key generator based on spl_object_hash.
  *
