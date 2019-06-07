@@ -16,7 +16,7 @@ class SplObjectHashKeyGenerator implements KeyGeneratorInterface
      *
      * @return string
      */
-    public function generateKey($value)
+    public function generateKey($value) : string
     {
         if (is_object($value)) {
             return spl_object_hash($value);

@@ -8,6 +8,25 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollectorInterface;
 class TwigCacheCollector implements DataCollectorInterface
 {
     /**
+     * @var string
+     */
+    private $strategyClass;
+
+    /**
+     * Data about fetchBlock requests.
+     *
+     * @var array
+     */
+    private $fetchBlock = [];
+
+    /**
+     * Data about generateKey requests.
+     *
+     * @var array
+     */
+    private $generateKey = [];
+
+    /**
      * Cache hits.
      *
      * @var int
@@ -16,14 +35,52 @@ class TwigCacheCollector implements DataCollectorInterface
 
     public function collect(Request $request, Response $response, \Exception $exception = null)
     {
+        // nothing to do here
     }
 
-    public function addFetchBlock(){}
-    public function addGenerateKey(){}
-
-    public function setStrategyClass()
+    /**
+     * @return string The collector name
+     */
+    public function getName()
     {
+        return 'twig_cache';
+    }
 
+    /**
+     * @param string $strategyClass
+     */
+    public function setStrategyClass($strategyClass)
+    {
+        $this->strategyClass = $strategyClass;
+    }
+
+    /**
+     * Store a fetch request.
+     *
+     * @param mixed  $key
+     * @param string $output
+     */
+    public function addFetchBlock($key, $output)
+    {
+        $this->fetchBlock[] = [$key, $output];
+
+        if ($output) {
+            ++$this->hits;
+        }
+    }
+
+    /**
+     * Store a generateKey request.
+     *
+     * @param string $annotation
+     * @param mixed  $value
+     */
+    public function addGenerateKey($annotation, $value)
+    {
+        $this->generateKey[] = [
+            'annotation' => $annotation,
+            'value' => $value,
+        ];
     }
 
     /**
@@ -31,19 +88,14 @@ class TwigCacheCollector implements DataCollectorInterface
      *
      * @return array
      */
-    public function getData() : array
+    public function getData()
     {
         return [
+            'fetchBlock' => $this->fetchBlock,
+            'generateKey' => $this->generateKey,
             'hits' => $this->hits,
+            'strategyClass' => $this->strategyClass,
         ];
-    }
-
-    /**
-     * @return string The collector name
-     */
-    public function getName() : string
-    {
-        return 'qa3tq35t13';
     }
 
     /**
@@ -51,6 +103,8 @@ class TwigCacheCollector implements DataCollectorInterface
      */
     public function reset()
     {
+        $this->fetchBlock = [];
+        $this->generateKey = [];
         $this->hits = 0;
     }
 }
