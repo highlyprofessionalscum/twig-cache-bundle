@@ -1,9 +1,9 @@
 parameters:
   twig_cache.adapter.class: highlyprofessionalscum\Twig\CacheExtension\CacheProvider\PsrCacheAdapter
   twig_cache.extension.class: highlyprofessionalscum\Twig\CacheExtension\Extension
-  twig_cache.strategy.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\BlackholeCacheStrategy
-  twig_cache.strategy.generational.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\BlackholeCacheStrategy
-  twig_cache.strategy.lifetime.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\BlackholeCacheStrategy
+  twig_cache.strategy.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\IndexedChainingCacheStrategy
+  twig_cache.strategy.generational.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\GenerationalCacheStrategy
+  twig_cache.strategy.lifetime.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\LifetimeCacheStrategy
   twig_cache.strategy.spl_object_hash_key_generator.class: highlyprofessionalscum\TwigCacheBundle\KeyGenerator\SplObjectHashKeyGenerator
 
 services:
