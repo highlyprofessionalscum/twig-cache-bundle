@@ -31,7 +31,7 @@ class TwigCacheCollector implements DataCollectorInterface
      *
      * @return array
      */
-    public function getData()
+    public function getData() : array
     {
         return [
             'hits' => $this->hits,
@@ -41,7 +41,7 @@ class TwigCacheCollector implements DataCollectorInterface
     /**
      * @return string The collector name
      */
-    public function getName()
+    public function getName() : string
     {
         return 'qa3tq35t13';
     }
