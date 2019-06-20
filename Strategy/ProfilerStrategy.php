@@ -41,6 +41,7 @@ class ProfilerStrategy implements CacheStrategyInterface
     {
         $output = $this->cacheStrategy->fetchBlock($key);
         $this->dataCollector->addFetchBlock($key, $output);
+
         return $output;
     }
 
@@ -55,6 +56,7 @@ class ProfilerStrategy implements CacheStrategyInterface
     public function generateKey($annotation, $value)
     {
         $this->dataCollector->addGenerateKey($annotation, $value);
+
         return $this->cacheStrategy->generateKey($annotation, $value);
     }
 
