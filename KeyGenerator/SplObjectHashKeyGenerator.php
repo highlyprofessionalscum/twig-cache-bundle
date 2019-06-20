@@ -18,10 +18,10 @@ class SplObjectHashKeyGenerator implements KeyGeneratorInterface
      */
     public function generateKey($value) : string
     {
-        if (is_object($value)) {
-            return spl_object_hash($value);
+        if (!is_object($value)) {
+            $value = (object) $value;
         }
 
-        return sha1(serialize($value));
+        return spl_object_hash($value);
     }
 }
