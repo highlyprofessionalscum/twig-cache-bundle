@@ -5,12 +5,13 @@ parameters:
   twig_cache.strategy.generational.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\GenerationalCacheStrategy
   twig_cache.strategy.lifetime.class: highlyprofessionalscum\Twig\CacheExtension\CacheStrategy\LifetimeCacheStrategy
   twig_cache.strategy.spl_object_hash_key_generator.class: highlyprofessionalscum\TwigCacheBundle\KeyGenerator\SplObjectHashKeyGenerator
+  twig_cache.default_ttl: 3600
 
 services:
   twig_cache.strategy:
     class: '%twig_cache.strategy.class%'
     public: false
-    arguments: [{ gen: '@twig_cache.strategy.generational', time: '@twig_cache.strategy.lifetime' }]
+    arguments: [{ gen: '@twig_cache.strategy.generational', time: '@twig_cache.strategy.lifetime' }, '%twig_cache.default_ttl%' ]
   twig_cache.strategy.spl_object_hash_key_generator:
     class: '%twig_cache.strategy.spl_object_hash_key_generator.class%'
     public: false
@@ -25,7 +26,7 @@ services:
     arguments: ['@twig_cache.strategy']
   twig_cache.strategy.generational:
     class: '%twig_cache.strategy.generational.class%'
-    arguments: ['@twig_cache.adapter', '@twig_cache.strategy.key_generator']
+    arguments: ['@twig_cache.adapter', '@twig_cache.strategy.key_generator', '%twig_cache.default_ttl%']
   twig_cache.strategy.lifetime:
     class: '%twig_cache.strategy.lifetime.class%'
-    arguments: ['@twig_cache.adapter']
+    arguments: ['@twig_cache.adapter', '%twig_cache.default_ttl%']

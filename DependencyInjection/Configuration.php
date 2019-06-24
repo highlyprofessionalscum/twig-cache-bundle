@@ -38,6 +38,10 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('twig_cache.strategy.spl_object_hash_key_generator')
                     ->info('')
                 ->end()
+                ->integerNode('default_ttl')
+                    ->defaultValue(3600)
+                    ->info('')
+                ->end()
             ->end()
         ;
 
