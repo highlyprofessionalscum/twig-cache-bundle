@@ -39,7 +39,7 @@ class Configuration implements ConfigurationInterface
                     ->info('')
                 ->end()
                 ->integerNode('default_ttl')
-                    ->defaultValue('%twig_cache.default_ttl%')
+                    ->defaultValue(3600)
                     ->info('')
                 ->end()
             ->end()
