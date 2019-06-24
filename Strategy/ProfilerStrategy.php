@@ -20,10 +20,15 @@ class ProfilerStrategy implements CacheStrategyInterface
     private $dataCollector;
 
     /**
+     * @var int
+     */
+    private $ttl;
+
+    /**
      * @param CacheStrategyInterface $cacheStrategy
      * @param TwigCacheCollector $dataCollector
      */
-    public function __construct(CacheStrategyInterface $cacheStrategy, TwigCacheCollector $dataCollector)
+    public function __construct(CacheStrategyInterface $cacheStrategy, TwigCacheCollector $dataCollector, $ttl)
     {
         $this->cacheStrategy = $cacheStrategy;
         $this->dataCollector = $dataCollector;
@@ -52,7 +57,7 @@ class ProfilerStrategy implements CacheStrategyInterface
      *
      * @return mixed
      */
-    public function generateKey($annotation, $value)
+    public function generateKey($annotation, $value): string
     {
         $this->dataCollector->addGenerateKey($annotation, $value);
         return $this->cacheStrategy->generateKey($annotation, $value);
@@ -66,8 +71,8 @@ class ProfilerStrategy implements CacheStrategyInterface
      *
      * @return mixed
      */
-    public function saveBlock($key, $block): bool
+    public function saveBlock($key, $block, $ttl = null): bool
     {
-        return $this->cacheStrategy->saveBlock($key, $block);
+        return $this->cacheStrategy->saveBlock($key, $block, $ttl ?? $this->ttl);
     }
 }
