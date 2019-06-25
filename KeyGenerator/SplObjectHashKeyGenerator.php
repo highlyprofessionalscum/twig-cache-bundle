@@ -5,7 +5,6 @@ use highlyprofessionalscum\Twig\CacheExtension\KeyGeneratorInterface;
 /**
  * Key generator based on spl_object_hash.
  *
- * @see https://github.com/asm89/twig-cache-extension#setup-1
  */
 class SplObjectHashKeyGenerator implements KeyGeneratorInterface
 {

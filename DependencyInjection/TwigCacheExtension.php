@@ -31,13 +31,14 @@ class TwigCacheExtension extends Extension
         if ($config['profiler']) {
             $dataCollectorDefinition = new Definition(TwigCacheCollector::class);
             $dataCollectorDefinition->addTag('data_collector', [
-                'id' => 'asm89_cache',
-                'template' => 'TwigCacheBundle:Collector:asm89_cache',
+                'id' => 'twig_cache',
+                'template' => 'TwigCacheBundle:Collector:twig_cache',
             ]);
             $container->setDefinition(TwigCacheCollector::class, $dataCollectorDefinition);
             $strategy = new Definition(ProfilerStrategy::class, [
                 new Reference($config['strategy']),
                 new Reference(TwigCacheCollector::class),
+                new Reference($config['default_ttl']),
             ]);
             $container->addDefinitions([$strategy]);
         }
