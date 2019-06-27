@@ -32,7 +32,7 @@ class TwigCacheExtension extends Extension
             $dataCollectorDefinition = new Definition(TwigCacheCollector::class);
             $dataCollectorDefinition->addTag('data_collector', [
                 'id' => 'twig_cache',
-                'template' => 'TwigCacheBundle:Collector:twig_cache',
+                'template' => '@TwigCache/Collector/twig_cache.html.twig',
             ]);
             $container->setDefinition(TwigCacheCollector::class, $dataCollectorDefinition);
             $strategy = new Definition(ProfilerStrategy::class, [
