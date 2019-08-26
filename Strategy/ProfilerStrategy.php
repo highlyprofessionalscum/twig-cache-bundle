@@ -42,7 +42,7 @@ class ProfilerStrategy implements CacheStrategyInterface
      *
      * @return mixed
      */
-    public function fetchBlock($key): ?string
+    public function fetchBlock(string $key): ?string
     {
         $output = $this->cacheStrategy->fetchBlock($key);
         $this->dataCollector->addFetchBlock($key, $output);
@@ -73,7 +73,7 @@ class ProfilerStrategy implements CacheStrategyInterface
      *
      * @return mixed
      */
-    public function saveBlock($key, $block, $ttl = null): bool
+    public function saveBlock(string $key, string $block, ?int $ttl = null): bool
     {
         return $this->cacheStrategy->saveBlock($key, $block, $ttl ?? $this->ttl);
     }
